@@ -29,3 +29,12 @@ jobs:
       - name: Install backend dependencies
         working-directory: ./backend
         run: npm install
+
+      - name: Start backend
+        working-directory: ./backend
+        run: |
+        node index.js &
+        sleep 5
+
+      - name: Test backend endpoint
+        run: curl http://localhost:3000
